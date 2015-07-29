@@ -30,7 +30,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
+
+
+INTERNAL_APPS = (
+    'backend.models.user',
+    'backend.models.location',
+    'backend.models.company',
+    'backend.models.coupon',
+    'backend.models.picture',
+)
+
+
+EXTERNAL_APPS = (    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +49,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+
+
+INSTALLED_APPS = INTERNAL_APPS + EXTERNAL_APPS
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
