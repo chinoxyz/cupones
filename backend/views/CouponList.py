@@ -19,4 +19,4 @@ class CouponListView(APIView):
         
         context = {}
         
-        return render(request, 'index.html', context)
+        return render(request, 'couponlist.html', context)
