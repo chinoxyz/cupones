@@ -17,6 +17,6 @@ class CouponListView(APIView):
             Error
         """
         
-        context = {}
+        context = {"couponlist":[]}
         
         return render(request, 'couponlist.html', context)
