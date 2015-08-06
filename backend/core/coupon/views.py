@@ -1,23 +1,9 @@
 __author__ = 'josegregorio'
 
 from django.shortcuts import render
-from rest_framework.views import APIView
+from django.http import HttpResponse
 
 
-class CouponListView(APIView):
-
-    def get(self, request):
-        """
-        input:
-        code
-
-        output:
-        Success:
-            OK
-        Else:
-            Error
-        """
-
-        context = {"couponlist": []}
-
-        return render(request, 'couponlist.html', context)
+def all_coupons(request):
+    context = {"couponlist": [1]}
+    return render(request, 'coupon/couponlist.html', context)
