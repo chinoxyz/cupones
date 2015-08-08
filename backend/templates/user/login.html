@@ -3,12 +3,17 @@
 
 {% block page_body %}
 
-<div id="login-user-pass" class="col-xs-12 col-sm-6">
+
+<div id="login-user-pass" >
+    
     <div class="form-group">
-        <form action="{% url 'login' %}" method="POST">
+        
+        <form action="" method="POST">
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">
+            
             {% for field in form %}
+            
             <div class="form-group">
                 {{ field.label_tag }}
                 {% if field.errors %}
@@ -20,6 +25,7 @@
                 {% endif %}
                 {{ field }}
             </div>
+            
             {% endfor %}
             {% if form.non_field_errors %}
             <div class="error">

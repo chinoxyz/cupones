@@ -1,3 +1,4 @@
+from rest_framework.views import APIView
 __author__ = 'josegregorio'
 
 from django.contrib.auth import login, authenticate
@@ -9,25 +10,30 @@ from django.shortcuts import render
 from .forms import LoginForm
 
 
-def login(request):
-    form = None
-    follow = '/'
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
 
+class LoginView(APIView):
+    follow = '/'
+    def get(self, request):
+        form = LoginForm()
+        context = {'form': form, 'next': self.follow}
+        print context
+        return render(request, 'user/login.html', context)
+    def post(self, request):
+        form = LoginForm(request.POST)
         if form.is_valid():
             login_data = form.cleaned_data
             user = authenticate(username=login_data['username'], password=login_data['password'])
 
             if user and user.is_active:
                 login(request, user)
-                response = HttpResponseRedirect(reverse(follow))
+                response = HttpResponseRedirect(reverse(self.follow))
                 return response
             else:
-                form._errors[NON_FIELD_ERRORS] = _('The username or password you entered are invalid.')
+                form.add_error(None, 'The username or password you entered are invalid.')
+        context = {'form': form, 'next':self.follow}
+        return render(request, 'user/login.html', context)
+        
 
-    context = {'form': form, 'next': follow}
-    return render(request, 'user/login.html', context)
 
 
 def register(request):
