@@ -8,9 +8,10 @@ from django.db.models.fields.related import OneToOneField, ForeignKey
 from django.db.models.fields import CharField,EmailField, BooleanField
 
 
-#class tokenPassword(models.Model):
+# class tokenPassword(models.Model):
 #    user = OneToOneField(User)
 #    token = CharField()
+
 
 class AppUser(models.Model):
     user = OneToOneField(User)
@@ -26,3 +27,6 @@ class AppUser(models.Model):
             return True
         else:
             return False
+
+    def __unicode__(self):
+        return self.first_name + " " + self.last_name

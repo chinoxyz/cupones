@@ -19,9 +19,16 @@ class BaseCoupon(models.Model):
     information = TextField()
     expiration_date = DateTimeField()
 
+    def __unicode__(self):
+        return self.title
+
+
 class Coupon(models.Model):
     creation_date = DateTimeField(auto_now_add=True)
     basecoupon = ForeignKey(BaseCoupon)
     user = ForeignKey(AppUser)
     status = IntegerField()
     rating = FloatField()
+
+    def __unicode__(self):
+        return str(self.basecoupon)
