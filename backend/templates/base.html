@@ -16,7 +16,7 @@
 <body>
 
 <div class="container">
-
+    <div style="background-color:#333;" class="header">
     <!-- The justified navigation menu is meant for single line per list item.
          Multiple lines will require custom code not provided by Bootstrap. -->
     <div style="height:80px;">
@@ -41,17 +41,17 @@
         </nav>
 
     </div>
+        </div>
 
-
-
+    <div style="padding:30px;">
     {% block page_body %}
     base
     {% endblock %}
 
-
+    </div>
 
     <!-- Site footer -->
-    <footer class="footer">
+    <footer class="footer" style="background-color:#333;">
         <p>&copy; Company 2014</p>
     </footer>
 

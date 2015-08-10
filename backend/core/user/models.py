@@ -14,11 +14,11 @@ from django.db.models.fields import CharField,EmailField, BooleanField
 
 
 class AppUser(models.Model):
-    user = OneToOneField(User)
-    company = CharField(max_length=30, null=True, blank=True)
+    credential = OneToOneField(User)
+    
     first_name = CharField(max_length=50)
     last_name = CharField(max_length=50)
-    initial_email = EmailField(null=True, blank=True)
+    email = EmailField(unique=True)
 
     def change_password(self, password, newpassword):
         if self.user.check_password(password):

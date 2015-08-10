@@ -4,8 +4,9 @@
 {% block page_body %}
 
 
+
 <style>
-#login-user-pass{
+#register-user{
     max-width:350px;
     
     
@@ -13,7 +14,7 @@
 }
 </style>
 <center>
-<div id="login-user-pass" >
+<div id="register-user" >
     
     <div class="form-group" >
         
@@ -49,16 +50,9 @@
             </div>
             {% endif %}
             
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-primary" value="Register">
             </div>
-            <div>
             
-                <a href="{% url 'password_reset' %}"> Forgot password? </a>
-                <div id="register-here">
-                    Not registered?
-                    <a href="{% url 'register' %}" > Register here </a>
-                </div>
-            </div>
         </form>
     </div>
 </div>
