@@ -43,6 +43,7 @@ EXTERNAL_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_faker',
 )
 
 INSTALLED_APPS = INTERNAL_APPS + EXTERNAL_APPS

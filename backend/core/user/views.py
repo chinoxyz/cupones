@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.core.urlresolvers import reverse
 from django.forms.forms import NON_FIELD_ERRORS
 from django.http.response import HttpResponseRedirect, HttpResponse
@@ -48,11 +48,15 @@ class RegisterView(APIView):
         context = {'form': form}
         return render(request, 'user/login.html', context)
         
+        
 
-
-def logout(request):
-    return HttpResponse("The logout view is coming soon...")
-
+class LogoutView(APIView):
+    follow = '/'
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect(self.follow)
+    def post(self,request):
+        return self.get(request)
 
 def password_reset(request):
     return HttpResponse("The password reset view is coming soon...")
