@@ -36,6 +36,7 @@ INTERNAL_APPS = (
 )
 
 EXTERNAL_APPS = (
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,8 @@ EXTERNAL_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'django_faker',
+    'test_without_migrations',
+    'django_nose',
 )
 
 INSTALLED_APPS = INTERNAL_APPS + EXTERNAL_APPS

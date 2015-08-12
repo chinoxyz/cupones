@@ -1,0 +1,1 @@
+time python manage.py test --settings=cupones.test_settings --nomigrations 

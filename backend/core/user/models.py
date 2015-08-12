@@ -19,7 +19,7 @@ class AppUser(models.Model):
     first_name = CharField(max_length=50)
     last_name = CharField(max_length=50)
     email = EmailField(unique=True)
-
+    validated_email = BooleanField(default=False)
     def change_password(self, password, newpassword):
         if self.user.check_password(password):
             self.user.set_password(newpassword)
