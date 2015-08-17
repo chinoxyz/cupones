@@ -5,6 +5,8 @@ from django.forms.widgets import TextInput, PasswordInput, EmailInput
 from .models import AppUser
 from django.db import transaction
 from django.contrib.auth.models import User
+
+
 class LoginForm(Form):
     ATTR_DICT = {'class': 'form-control'}
     username = CharField(label='Email', widget=TextInput(attrs=ATTR_DICT))

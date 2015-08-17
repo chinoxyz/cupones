@@ -9,7 +9,7 @@ from backend.core.user.models import AppUser
 
 
 class BaseCoupon(models.Model):
-    company = ForeignKey(Company)
+    company = ForeignKey(Company, null=True)
     title = CharField(max_length=120)
     price = FloatField()
     creation_date = DateTimeField(auto_now_add=True)
